@@ -1,6 +1,7 @@
 name: enum_utils
 description: Utility functions for working with enums
 version: 0.1.0
+repository: https://github.com/tim-smart/dart-enum-utils.git
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
