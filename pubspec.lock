@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.11"
+  fpdt:
+    dependency: "direct main"
+    description:
+      name: fpdt
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.31"
   lints:
     dependency: "direct dev"
     description:

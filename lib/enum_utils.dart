@@ -1,6 +1,7 @@
 library enum_utils;
 
-import 'package:fpdart/fpdart.dart';
+import 'package:fpdt/fpdt.dart';
+import 'package:fpdt/option.dart';
 
 String _id<T>(T val) => val.toString().split('.')[1].toLowerCase();
 
@@ -18,16 +19,16 @@ Option<T> Function(V) fromMap<T, V>(Map<T, V> map) {
     },
   );
 
-  return (key) => optionOf(reverseMap[key]);
+  return (key) => fromNullable(reverseMap[key]);
 }
 
 Option<T> Function(String) fromId<T>(List<T> values) {
   final map = idMap(values);
-  return (id) => optionOf(map[id]);
+  return (id) => fromNullable(map[id]);
 }
 
 V Function(T) valueMap<T, V>(Map<T, V> map, V Function() dflt) =>
-    (T val) => optionOf(map[val]).getOrElse(dflt);
+    (T val) => fromNullable(map[val]).p(getOrElse(dflt));
 
 Option<V> Function(T) optionValueMap<T, V>(Map<T, V> map) =>
-    (T val) => optionOf(map[val]);
+    (T val) => fromNullable(map[val]);
