@@ -3,12 +3,8 @@ library enum_utils;
 import 'package:fpdt/fpdt.dart';
 import 'package:fpdt/option.dart';
 
-String _id<T>(T val) => val.toString().split('.')[1].toLowerCase();
-
-String Function(T) id<T>() => _id;
-
-Map<String, T> idMap<T>(List<T> values) =>
-    values.fold({}, (acc, val) => {...acc, _id(val): val});
+Map<String, T> nameMap<T extends Enum>(List<T> values) =>
+    values.fold({}, (acc, val) => {...acc, val.name: val});
 
 Option<T> Function(V) fromMap<T, V>(Map<T, V> map) {
   final reverseMap = map.entries.fold<Map<V, T>>(
@@ -22,9 +18,14 @@ Option<T> Function(V) fromMap<T, V>(Map<T, V> map) {
   return (key) => fromNullable(reverseMap[key]);
 }
 
-Option<T> Function(String) fromId<T>(List<T> values) {
-  final map = idMap(values);
+Option<T> Function(String) fromName<T extends Enum>(List<T> values) {
+  final map = nameMap(values);
   return (id) => fromNullable(map[id]);
+}
+
+T Function(String) fromNameOrElse<T extends Enum>(List<T> values, T dflt) {
+  final map = nameMap(values);
+  return (id) => map[id] ?? dflt;
 }
 
 V Function(T) valueMap<T, V>(Map<T, V> map, V Function() dflt) =>
