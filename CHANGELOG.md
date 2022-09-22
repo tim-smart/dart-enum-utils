@@ -1,3 +1,7 @@
+## 0.4.0
+
+- Remove un-need functions
+
 ## 0.3.0
 
 - Use the enum `name` API
