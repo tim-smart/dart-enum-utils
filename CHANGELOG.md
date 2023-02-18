@@ -1,3 +1,7 @@
+## 0.4.1
+
+- pub upgrade
+
 ## 0.4.0
 
 - Remove un-need functions
