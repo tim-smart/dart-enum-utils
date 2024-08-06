@@ -1,13 +1,13 @@
 name: enum_utils
 description: Utility functions for working with enums
-version: 0.4.1
+version: 0.5.0
 repository: https://github.com/tim-smart/dart-enum-utils.git
 
 environment:
-  sdk: ">=2.14.0 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  fpdt: ^0.1.0
+  elemental: ^0.2.1
 
 dev_dependencies:
-  lints: ^1.0.1
+  lints: ^4.0.0
